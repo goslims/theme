@@ -1,0 +1,20 @@
+{
+    "name": "slims/theme",
+    "type": "library",
+    "license": "GPL-3.0",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "SLiMS\\Theme\\": ""
+        },
+        "files": ["theme_helpers.php"]
+    },
+    "authors": [
+        {
+            "name": "SDC",
+            "email": "official@slims.web.id"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
