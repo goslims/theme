@@ -13,9 +13,20 @@ class Blade
 
         foreach ($input as $key => $value) {
             if (substr($key, -1) == '!') {
+                unset($input[$key]);
                 $input[trim($key, '!')] = $value;
                 continue;
             }
+
+            if (is_array($value)) {
+                $input[$key] = $this->removeXss($value);
+                continue;
+            }
+
+            if (!is_string($value)) {
+                continue;
+            }
+            
             $input[$key] = addslashes(strip_tags($value));
         }
 
