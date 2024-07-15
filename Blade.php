@@ -19,7 +19,7 @@ class Blade
             }
 
             if (is_array($value)) {
-                $input[$key] = $this->removeXss($value);
+                $input[$key] = self::removeXss($value);
                 continue;
             }
 
