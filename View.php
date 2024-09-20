@@ -5,9 +5,9 @@ use Closure;
 
 class View
 {
-    private static ?View $instance = null;
-    private ?Loader $loader = null;
-    private ?object $info = null;
+    protected static ?View $instance = null;
+    protected ?Loader $loader = null;
+    protected ?object $info = null;
 
     public static function getInstance()
     {
