@@ -17,7 +17,7 @@ class Loader
 
         extract($dataToExtract);
         if (file_exists($filePath = $this->base . str_replace($this->base, '', $fileInfo['dirname']) . DS . ($fileInfo['filename']??'uknown') . '.php')) {
-            ob_end_clean();
+            if (ob_get_contents()) ob_end_clean();
             ob_start();
             include $filePath;
             $this->buffer .= ob_get_clean();
@@ -30,7 +30,7 @@ class Loader
 
     public static function pathConverter(string $input)
     {
-        return str_replace('.', DS, trim($input, '.'));
+        return str_replace(['.','/','\\'], DS, trim($input, '.'));
     }
 
     public function truncateBuffer()
